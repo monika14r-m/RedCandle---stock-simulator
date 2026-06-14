@@ -1,82 +1,133 @@
-RedCandle
+# RedCandle
 
-A stock market simulation platform for exploring trading strategies, portfolio management, and market behavior — in a risk-free learning environment.
+A stock market simulation platform for exploring trading strategies, portfolio management, and market behavior in a risk-free learning environment.
 
-Overview
+---
 
-RedCandle is built for beginners and developers who want to understand how trading works before risking real money. It provides a simplified but realistic simulation where users can place orders, track portfolios, analyze outcomes, and experiment with strategies — all without financial consequence.
+## Overview
 
-FeatureDetailsOrder SimulationSimulated buy and sell order executionPortfolio TrackingReal-time portfolio value and holdingsP&L AnalysisProfit and loss breakdown per trade and overallTransaction HistoryFull log of all executed ordersStrategy TestingExperiment with trading approaches safely
+RedCandle is an educational stock trading simulator designed to help users understand the fundamentals of investing and trading without risking real capital.
 
-Project Structure
+The platform allows users to execute simulated trades, monitor portfolio performance, analyze results, and experiment with different strategies using virtual funds.
 
+### Features
+
+| Feature             | Description                                                |
+| ------------------- | ---------------------------------------------------------- |
+| Order Simulation    | Simulated buy and sell order execution                     |
+| Portfolio Tracking  | Real-time portfolio value and holdings                     |
+| P&L Analysis        | Profit and loss breakdown per trade and overall            |
+| Transaction History | Complete log of executed orders                            |
+| Strategy Testing    | Safe environment for experimenting with trading strategies |
+
+---
+
+## Project Structure
+
+```text
 RedCandle---stock-simulator/
-├── frontend/               # UI — charts, dashboard, order panel
-├── .github/workflows/      # GitHub Actions — Jekyll deployment
+├── frontend/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── assets/
+│
+├── .github/
+│   └── workflows/
+│
 └── README.md
+```
 
-Getting Started
+---
 
-bashgit clone https://github.com/monika14r-m/RedCandle---stock-simulator.git
+## Getting Started
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/monika14r-m/RedCandle---stock-simulator.git
+
 cd RedCandle---stock-simulator/frontend
+```
 
-Open index.html in your browser or serve it locally:
+### Run Locally
 
-bashnpx serve .
+Open `index.html` directly in your browser or serve the project locally:
 
-Live demo: monika14r-m.github.io/RedCandle---stock-simulator
+```bash
+npx serve .
+```
 
-Roadmap
+---
 
-Phase 1 — Core Simulation
+## Live Demo
 
+https://monika14r-m.github.io/RedCandle---stock-simulator/
 
- Basic portfolio management
- Order execution simulation
- Transaction tracking
+---
 
+## Roadmap
 
-Phase 2 — Analytics
+### Phase 1 — Core Simulation
 
+* [x] Basic portfolio management
+* [x] Order execution simulation
+* [x] Transaction tracking
 
- Portfolio analytics dashboard
- Historical performance metrics
- Strategy comparison tools
+### Phase 2 — Analytics
 
+* [ ] Portfolio analytics dashboard
+* [ ] Historical performance metrics
+* [ ] Strategy comparison tools
 
-Phase 3 — Advanced Features
+### Phase 3 — Advanced Features
 
+* [ ] Market event simulation
+* [ ] Risk management features
+* [ ] Advanced reporting
 
- Market event simulation
- Risk management features
- Advanced reporting
+---
 
+## Limitations
 
-Limitations
+RedCandle is an educational simulator and does not fully replicate real-world trading environments.
 
-RedCandle is an educational simulator and does not fully replicate real-world trading conditions. The following are not currently modeled:
+The following factors are not currently modeled:
 
+* Brokerage fees and commissions
+* Tax calculations
+* Market liquidity constraints
+* Slippage and spread effects
+* Regulatory compliance requirements
 
-Brokerage fees and commissions
-Tax calculations
-Market liquidity constraints
-Slippage and spread effects
-Regulatory compliance requirements
+Simulation results should not be interpreted as real investment outcomes.
 
+---
 
-Results from the simulator should not be interpreted as real investment outcomes.
+## Contributing
 
-Contributing
+Contributions, suggestions, and bug reports are welcome.
 
-Suggestions, bug reports, and improvements are welcome. Please open an issue before submitting a pull request so we can align on scope.
+Please open an issue before submitting a pull request to discuss significant changes.
 
-bashgit checkout -b feature/your-feature-name
-# make changes, then open a pull request
+```bash
+git checkout -b feature/your-feature-name
+```
 
-Disclaimer
+Make your changes, commit them, and open a pull request.
 
-This project is intended solely for educational and research purposes. It does not provide financial advice and should not be used as a basis for real-world investment decisions.
+---
 
-License
+## Disclaimer
 
-MIT License. See LICENSE for details.
+This project is intended solely for educational and research purposes.
+
+RedCandle does not provide financial advice and should not be used as the basis for real-world investment decisions.
+
+---
+
+## License
+
+Licensed under the MIT License.
+
+See the `LICENSE` file for additional information.
