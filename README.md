@@ -1,81 +1,82 @@
-# 📉 RedCandle
+RedCandle
 
-A stock market simulation platform built to explore trading concepts, portfolio management, and market behavior in a safe learning environment.
+A stock market simulation platform for exploring trading strategies, portfolio management, and market behavior — in a risk-free learning environment.
 
-## Why RedCandle?
+Overview
 
-Most beginners want to understand how trading works before risking real money. RedCandle provides a simplified simulation where users can experiment with strategies, analyze outcomes, and learn core market concepts.
+RedCandle is built for beginners and developers who want to understand how trading works before risking real money. It provides a simplified but realistic simulation where users can place orders, track portfolios, analyze outcomes, and experiment with strategies — all without financial consequence.
 
-## Features
+FeatureDetailsOrder SimulationSimulated buy and sell order executionPortfolio TrackingReal-time portfolio value and holdingsP&L AnalysisProfit and loss breakdown per trade and overallTransaction HistoryFull log of all executed ordersStrategy TestingExperiment with trading approaches safely
 
-* Simulated buy and sell orders
-* Portfolio tracking
-* Profit and loss analysis
-* Transaction history
-* Strategy experimentation
-* Educational trading environment
+Project Structure
 
-## Project Goals
+RedCandle---stock-simulator/
+├── frontend/               # UI — charts, dashboard, order panel
+├── .github/workflows/      # GitHub Actions — Jekyll deployment
+└── README.md
 
-* Learn financial application development
-* Explore market simulation logic
-* Build portfolio management systems
-* Understand trade execution workflows
-* Experiment with trading strategies safely
+Getting Started
 
-## Current Status
+bashgit clone https://github.com/monika14r-m/RedCandle---stock-simulator.git
+cd RedCandle---stock-simulator/frontend
 
-🚧 Under Development
+Open index.html in your browser or serve it locally:
 
-The project is actively evolving and new features are being explored and implemented.
+bashnpx serve .
 
-## Limitations
+Live demo: monika14r-m.github.io/RedCandle---stock-simulator
 
-RedCandle is an educational simulator and does **not** fully replicate real-world trading conditions.
+Roadmap
 
-Currently not modeled:
+Phase 1 — Core Simulation
 
-* Brokerage fees
-* Tax calculations
-* Regulatory compliance requirements
-* Market liquidity constraints
-* Slippage and spread effects
-* Exchange-specific trading rules
 
-Results produced by the simulator should not be interpreted as real investment outcomes.
+ Basic portfolio management
+ Order execution simulation
+ Transaction tracking
 
-## Roadmap
 
-### Phase 1
+Phase 2 — Analytics
 
-* Basic portfolio management
-* Order execution simulation
-* Transaction tracking
 
-### Phase 2
+ Portfolio analytics dashboard
+ Historical performance metrics
+ Strategy comparison tools
 
-* Portfolio analytics dashboard
-* Historical performance metrics
-* Strategy comparison tools
 
-### Phase 3
+Phase 3 — Advanced Features
 
-* Market event simulation
-* Risk management features
-* Advanced reporting
 
-## Contributing
+ Market event simulation
+ Risk management features
+ Advanced reporting
 
-Suggestions, bug reports, and improvements are welcome.
 
-If you have ideas that can improve the project, feel free to open an issue or submit a pull request.
+Limitations
 
-## Disclaimer
+RedCandle is an educational simulator and does not fully replicate real-world trading conditions. The following are not currently modeled:
 
-This project is intended solely for educational and research purposes.
 
-It does not provide financial advice and should not be used as a basis for real-world investment decisions.
+Brokerage fees and commissions
+Tax calculations
+Market liquidity constraints
+Slippage and spread effects
+Regulatory compliance requirements
 
-## License
 
-MIT License
+Results from the simulator should not be interpreted as real investment outcomes.
+
+Contributing
+
+Suggestions, bug reports, and improvements are welcome. Please open an issue before submitting a pull request so we can align on scope.
+
+bashgit checkout -b feature/your-feature-name
+# make changes, then open a pull request
+
+Disclaimer
+
+This project is intended solely for educational and research purposes. It does not provide financial advice and should not be used as a basis for real-world investment decisions.
+
+License
+
+MIT License. See LICENSE for details.
