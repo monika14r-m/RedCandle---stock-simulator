@@ -26,15 +26,15 @@ The platform allows users to execute simulated trades, monitor portfolio perform
 
 ```text
 RedCandle---stock-simulator/
-├── frontend/
-│   ├── index.html
-│   ├── css/
-│   ├── js/
-│   └── assets/
-│
 ├── .github/
 │   └── workflows/
-│
+│       └── jekyll-gh-pages.yml
+├── frontend/
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── tests/
+│   └── test_frontend_assets.py
 └── README.md
 ```
 
@@ -52,13 +52,15 @@ cd RedCandle---stock-simulator/frontend
 
 ### Run Locally
 
-Open `index.html` directly in your browser or serve the project locally:
+Open `frontend/index.html` directly in your browser or serve the `frontend` directory locally:
 
 ```bash
-npx serve .
+npx serve frontend
 ```
 
 ---
+
+The GitHub Pages workflow publishes `frontend/` as the site root. Local CSS and JavaScript references are relative to `frontend/`, so the same entry point works both locally and on the deployed project site.
 
 ## Live Demo
 
