@@ -32,9 +32,11 @@ RedCandle---stock-simulator/
 ├── frontend/
 │   ├── index.html
 │   ├── script.js
+│   ├── market-hours.mjs
 │   └── style.css
 ├── tests/
-│   └── test_frontend_assets.py
+│   ├── test_frontend_assets.py
+│   └── market-hours.test.mjs
 └── README.md
 ```
 
@@ -47,7 +49,7 @@ RedCandle---stock-simulator/
 ```bash
 git clone https://github.com/monika14r-m/RedCandle---stock-simulator.git
 
-cd RedCandle---stock-simulator/frontend
+cd RedCandle---stock-simulator
 ```
 
 ### Run Locally
@@ -61,6 +63,15 @@ npx serve frontend
 ---
 
 The GitHub Pages workflow publishes `frontend/` as the site root. Local CSS and JavaScript references are relative to `frontend/`, so the same entry point works both locally and on the deployed project site.
+
+## Tests
+
+Run the market-hours tests with Node.js 22 or newer and the frontend asset tests with Python:
+
+```bash
+node --test tests/market-hours.test.mjs
+python -m unittest discover -s tests -v
+```
 
 ## Live Demo
 
@@ -90,21 +101,14 @@ https://monika14r-m.github.io/RedCandle---stock-simulator/
 
 ---
 
-## Limitations
+## Simulation assumptions and limitations
 
-RedCandle is an educational simulator and does not fully replicate real-world trading environments.
+- Trading hours are simulated as **09:30–16:00 Eastern Time on weekdays** using the `America/New_York` timezone. Daylight-saving transitions are handled by the timezone database. Weekends are closed; exchange holidays are not modelled, so the simulator can still display the market as open on a holiday.
+- Stock prices are synthetic and change randomly by up to ±2% on each refresh (every 2.5 seconds). They are not live market data.
+- Market orders include 0.1% simulated slippage; every trade charges a flat ₹10 commission. Limit orders use the simulator's current synthetic price and do not model real order-book execution.
+- Real-world taxes, liquidity, spreads, partial fills, brokerage schedules, market impact, and regulatory requirements are not modelled.
 
-The following factors are not currently modeled:
-
-* Brokerage fees and commissions
-* Tax calculations
-* Market liquidity constraints
-* Slippage and spread effects
-* Regulatory compliance requirements
-
-Simulation results should not be interpreted as real investment outcomes.
-
----
+Simulation results should not be interpreted as real investment outcomes or advice.
 
 ## Contributing
 

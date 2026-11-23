@@ -8,6 +8,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 FRONTEND = ROOT / "frontend"
 INDEX = FRONTEND / "index.html"
+SCRIPT = FRONTEND / "script.js"
 
 
 class AssetParser(HTMLParser):
@@ -15,11 +16,14 @@ class AssetParser(HTMLParser):
         super().__init__()
         self.stylesheets = []
         self.scripts = []
+        self.module_scripts = []
 
     def handle_starttag(self, tag, attrs):
         attributes = dict(attrs)
         if tag == "script" and attributes.get("src"):
             self.scripts.append(attributes["src"])
+            if attributes.get("type") == "module":
+                self.module_scripts.append(attributes["src"])
         elif (
             tag == "link"
             and "stylesheet" in attributes.get("rel", "").lower().split()
@@ -55,6 +59,17 @@ class FrontendAssetTests(unittest.TestCase):
                     f"Asset path escapes frontend directory: {asset}",
                 )
                 self.assertTrue(resolved.is_file(), f"Missing referenced asset: {asset}")
+
+
+    def test_market_hours_module_is_loaded(self):
+        parser = AssetParser()
+        parser.feed(INDEX.read_text(encoding="utf-8"))
+        self.assertIn("script.js", parser.module_scripts, "script.js must run as an ES module")
+
+        source = SCRIPT.read_text(encoding="utf-8")
+        self.assertIn('import { isMarketOpenAt } from "./market-hours.mjs";', source)
+        self.assertIn("return isMarketOpenAt(new Date());", source)
+        self.assertTrue((FRONTEND / "market-hours.mjs").is_file())
 
 
 if __name__ == "__main__":
