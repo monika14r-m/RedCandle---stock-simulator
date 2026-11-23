@@ -2,8 +2,8 @@ name: Deploy RedCandle to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
   workflow_dispatch:
+  pull_request:
 
 permissions:
   contents: read
@@ -24,6 +24,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run market-hours regression tests
+        run: node --test tests/market-hours.test.mjs
+      - name: Check frontend JavaScript syntax
+        run: node --check --input-type=module < frontend/script.js
       - name: Validate frontend asset references
         run: python -m unittest discover -s tests -v
       - name: Setup Pages
@@ -37,6 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

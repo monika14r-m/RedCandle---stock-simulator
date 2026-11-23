@@ -3,10 +3,7 @@ let INITIAL_CASH = 100000;
 const COMMISSION_PER_TRADE = 10;
 const SLIPPAGE_PCT = 0.001;
 
-const MARKET_OPEN_HOUR = 9;
-const MARKET_OPEN_MINUTE = 30;
-const MARKET_CLOSE_HOUR = 16;
-const MARKET_CLOSE_MINUTE = 0;
+import { isMarketOpenAt } from "./market-hours.mjs";
 
 // ----- Data -----
 const stocks = [
@@ -37,16 +34,7 @@ function formatPercent(v) {
 }
 
 function isMarketOpen() {
-    const now = new Date();
-    const h = now.getHours();
-    const m = now.getMinutes();
-    const afterOpen =
-        h > MARKET_OPEN_HOUR ||
-        (h === MARKET_OPEN_HOUR && m >= MARKET_OPEN_MINUTE);
-    const beforeClose =
-        h < MARKET_CLOSE_HOUR ||
-        (h === MARKET_CLOSE_HOUR && m < MARKET_CLOSE_MINUTE);
-    return afterOpen && beforeClose;
+    return isMarketOpenAt(new Date());
 }
 
 function updateMarketStatus() {
